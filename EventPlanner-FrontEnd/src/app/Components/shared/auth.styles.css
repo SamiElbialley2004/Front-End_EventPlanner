@@ -1,97 +1,160 @@
-.page-container {
+.auth-wrapper {
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #f3f4f6;
-    padding: 20px;
+    background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+    padding: 1rem;
 }
 
-.form-container {
-    background: white;
-    padding: 32px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.auth-card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     width: 100%;
-    max-width: 360px;
+    max-width: 400px;
+    backdrop-filter: blur(10px);
 }
 
-.title {
-    color: #1f2937;
-    font-size: 24px;
-    font-weight: 600;
+.auth-header {
     text-align: center;
-    margin-bottom: 24px;
+    margin-bottom: 2rem;
 }
 
-.form-field {
-    margin-bottom: 20px;
+.auth-title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 0.5rem;
 }
 
-label {
+.auth-subtitle {
+    color: #6b7280;
+    font-size: 0.875rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
     display: block;
-    color: #4b5563;
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 500;
-    margin-bottom: 4px;
+    color: #374151;
+    margin-bottom: 0.5rem;
 }
 
-input {
+.form-control {
     width: 100%;
-    padding: 8px 12px;
-    border: 1px solid #d1d5db;
-    border-radius: 4px;
-    font-size: 14px;
-    transition: border-color 0.2s;
+    padding: 0.75rem 1rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    transition: all 0.2s;
+    background: white;
 }
 
-input:focus {
+.form-control:focus {
     outline: none;
-    border-color: #3b82f6;
-    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
 }
 
-.error {
-    color: #dc2626;
-    font-size: 12px;
-    margin-top: 4px;
+.form-control::placeholder {
+    color: #9ca3af;
+}
+
+.error-feedback {
+    margin-top: 0.375rem;
+    color: #ef4444;
+    font-size: 0.75rem;
 }
 
 .submit-button {
     width: 100%;
-    padding: 10px;
-    background: #3b82f6;
+    padding: 0.75rem 1.5rem;
+    background: #6366f1;
     color: white;
     border: none;
-    border-radius: 4px;
-    font-size: 14px;
+    border-radius: 0.5rem;
     font-weight: 500;
+    font-size: 0.875rem;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: all 0.2s;
+    margin-top: 1rem;
 }
 
 .submit-button:hover {
-    background: #2563eb;
+    background: #4f46e5;
+    transform: translateY(-1px);
+}
+
+.submit-button:active {
+    transform: translateY(0);
 }
 
 .submit-button:disabled {
-    background: #93c5fd;
+    background: #c7d2fe;
     cursor: not-allowed;
+    transform: none;
 }
 
-.alternate-action {
+.auth-footer {
     text-align: center;
-    margin-top: 16px;
-    font-size: 14px;
+    margin-top: 1.5rem;
+    font-size: 0.875rem;
     color: #6b7280;
 }
 
-.alternate-action a {
-    color: #3b82f6;
+.auth-link {
+    color: #6366f1;
     text-decoration: none;
     font-weight: 500;
+    margin-left: 0.25rem;
 }
 
-.alternate-action a:hover {
+.auth-link:hover {
     text-decoration: underline;
+}
+
+/* Loading state */
+.submit-button.loading {
+    position: relative;
+    color: transparent;
+}
+
+.submit-button.loading::after {
+    content: "";
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid white;
+    border-radius: 50%;
+    border-right-color: transparent;
+    animation: spin 0.75s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    .auth-card {
+        padding: 2rem;
+    }
+
+    .auth-title {
+        font-size: 1.5rem;
+    }
 }

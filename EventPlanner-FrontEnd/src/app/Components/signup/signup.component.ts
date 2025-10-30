@@ -6,7 +6,7 @@ import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angula
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['../shared/auth.styles.css'],
+  styleUrls: ['./signup.component.css'],
   standalone: true,
   imports: [CommonModule, RouterModule, ReactiveFormsModule]
 })

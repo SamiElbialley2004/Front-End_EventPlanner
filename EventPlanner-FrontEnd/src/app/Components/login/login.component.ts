@@ -6,12 +6,13 @@ import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angula
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['../shared/auth.styles.css'],
+  styleUrls: ['./login.component.css'],
   standalone: true,
   imports: [CommonModule, RouterModule, ReactiveFormsModule]
 })
 export class LoginComponent {
   loginForm: FormGroup;
+  isLoading: boolean = false;
 
   constructor(private fb: FormBuilder) {
     this.loginForm = this.fb.group({
