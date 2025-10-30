@@ -12,7 +12,7 @@ import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angula
 })
 export class SignupComponent {
   signupForm: FormGroup;
-
+isLoading: boolean = false;
   constructor(private fb: FormBuilder) {
     this.signupForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
